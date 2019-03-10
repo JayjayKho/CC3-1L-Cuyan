@@ -17,7 +17,7 @@ static Dice dice = new Dice();
         Dex = d;
         Intel = i;
         
-        MaxLife = dice.roll()+20;
+        MaxLife = dice.roll()+50;
         CurrentLife = MaxLife;
     }
     
@@ -31,11 +31,14 @@ static Dice dice = new Dice();
     }
     
     public void heal(int heal){        
-        if(CurrentLife >= MaxLife){
+        if(CurrentLife < MaxLife){
             CurrentLife += heal;
         }
-        else{
+        else if (CurrentLife >= MaxLife) {
             System.out.println("HP Full.");
+        }
+        else{
+            System.out.println("Error");
         }
     }
     
